@@ -3,7 +3,7 @@
  * @author  Ahmed Shawky (amamasa121212@gmail.com.com)
  * @brief   This file contains configuration information related to Timer module
  * @version 1.0
- * @date    2023-03-05
+ * @date    2023-03-06
  * 
  * 
  */
