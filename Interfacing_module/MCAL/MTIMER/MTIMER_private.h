@@ -25,14 +25,25 @@
 #define MTIMER_TCNT0            (*(volatile u8_t*)(0x52))
 #define MTIMER_OCR0             (*(volatile u8_t*)(0x5C))
 
+/*Timer1 registers*/
+#define MTIMER_TCCR1            (*(volatile u8_t*)(0x4E))
+#define MTIMER_TCNT1            (*(volatile u8_t*)(0x4C))
+#define MTIMER_OCR1A            (*(volatile u8_t*)(0x4A))
+#define MTIMER_OCR1B            (*(volatile u8_t*)(0x48))
+#define MTIMER_ICR1             (*(volatile u8_t*)(0x46))
+
 /********************************************************************************/
 /*                          Timer registers' bits                              */
 /******************************************************************************/
 
 /*TIFR bits*/
 #define MTIMER_TIFR_OCF0_BIT          (1)
+#define MTIMER_TIFR_OCF1A_BIT         (4)
+#define MTIMER_TIFR_OCF1B_BIT         (3)
 
 /*TIMSK bits*/
 #define MTIMER_TIMSK_OCIE0_BIT        (1)
+#define MTIMER_TIMSK_OCIE1A_BIT       (4)
+#define MTIMER_TIMSK_OCIE1B_BIT       (3)
 
 #endif /*__MTIMER_PRIVATE_H__*/

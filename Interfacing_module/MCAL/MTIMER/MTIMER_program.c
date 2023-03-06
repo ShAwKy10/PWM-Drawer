@@ -77,7 +77,12 @@ static void mtimer_start(u8_t au8_timerChannel)
         /*In case of channel 1*/
     case (TIMER_CHANNEL_1):
 
-        
+        /*Reset the timer counter1*/
+        MTIMER_TCNT1 = 0;
+
+        /*Setting the timer1 prescaler and its start operation*/
+        MTIMER_TCCR1 |= gu8_timer1_prescaler;
+            
         /*Breaking from this case*/
         break; 
 
@@ -115,7 +120,9 @@ static void mtimer_stop(u8_t au8_timerChannel)
         /*In case of channel 1*/
     case (TIMER_CHANNEL_1):
 
-        
+        /*Stop Timer1 operation*/
+        MTIMER_TCCR1 &= TIMER1_OPERATION_STOP;
+            
         /*Breaking from this case*/
         break; 
 
@@ -157,7 +164,7 @@ void mtimer_init(u8_t au8_timerChannel, u8_t au8_timerMode, u8_t au8_timerPresca
     case (TIMER_CHANNEL_1):
 
         /*Setting timer1 mode*/
-        MTIMER_TCCR0 =  au8_timerMode;
+        MTIMER_TCCR1 =  au8_timerMode;
 
         /*Setting the selected timer prescaler*/
         gu8_timer1_prescaler = au8_timerPrescaler;
@@ -221,7 +228,26 @@ void mtimer_delayMs_synchronous(u8_t au8_timerChannel,u32_t au32_delayTime_ms)
         /*In case of channel 1*/
     case (TIMER_CHANNEL_1):
 
-        
+        /*Setting OCR1A value to make a compare match after 1 ms*/
+        MTIMER_OCR1A = TIMER_1_MS_DELAY;
+
+        /*Start the timer operation*/
+        mtimer_start(TIMER_CHANNEL_1);
+
+        /*Looping over delay value*/
+        while (au32_delayTime_ms --)
+        {
+            /*Waitting until the 1ms delay over*/
+            while (!GET_BIT(MTIMER_TIFR, MTIMER_TIFR_OCF1A_BIT));
+
+            /*Clearing the flag bit*/
+            SET_BIT(MTIMER_TIFR, MTIMER_TIFR_OCF1A_BIT);
+            
+        }
+
+        /*Stoppping the timer operation*/
+        mtimer_stop(TIMER_CHANNEL_1);
+                
         /*Breaking from this case*/
         break; 
 
@@ -270,10 +296,16 @@ void mtimer_delayMs_asynchronous(u8_t au8_timerChannel,u32_t au32_delayTime_ms, 
         /*In case of channel 1*/
     case (TIMER_CHANNEL_1):
 
+        /*Setting OCR1A value to make a compare match after 1 ms*/
+        MTIMER_OCR1A = TIMER_1_MS_DELAY;
+
         /*Setting timer1 operation paremeters*/
         gu32_delayTimeMs_timer1 = au32_delayTime_ms;
         gfptr_timer1ISR = fptr_operationPointer;
         gu8_timer1_prescaler = au8_operationType;
+        
+        /*Enable output compare match interrupt*/
+        SET_BIT(MTIMER_TIMSK, MTIMER_TIMSK_OCIE1A_BIT);
 
         /*Start the timer operation*/
         mtimer_start(TIMER_CHANNEL_1);
@@ -364,5 +396,60 @@ ISR(TIMER0_COMP_vect)
         
 
 }
+
+ISR(TIMER1_COMPA_vect)
+{
+    
+    /*Static local variable used to trackthe delay time*/
+    static u32_t au32_delayTemp = 0;
+
+    /*Increment the delay variable*/
+    au32_delayTemp++;
+
+    /*Cheaking if the delay time has passed or not*/
+    if (au32_delayTemp == gu32_delayTimeMs_timer0)
+    {
+        /*Checking if the callback function is valid or not*/
+        if (gfptr_timer1ISR != NULL)
+        {
+
+            if (gu32_delayTimeMs_timer1 == 0)
+            {
+                /*Executing timer1 ISR callback function*/
+                gfptr_timer1ISR();
+
+                /*Reset the delay variable*/
+                au32_delayTemp = 0;
+
+                /*Checking if the timer is in single mode operation or not*/
+                if (gu8_timer1_operation == Timer_SINGLE_OPERATION)
+                {
+                    /*Stopping timer1*/
+                    mtimer_stop(TIMER_CHANNEL_1);
+                }
+                else
+                {
+                    /*Do nothing*/
+                }
+                
+                
+            }
+            
+        }
+        else
+        {
+            /* Do nothing */
+        }
+
+    }
+
+    else
+    {
+        /*Do nothing*/
+    }
+        
+
+}
+
 
 #endif /*__MTIMER_PROGRAM_C__*/

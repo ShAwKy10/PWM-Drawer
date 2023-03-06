@@ -18,6 +18,7 @@
 
 /*Custom prescaler choice*/
 #define TIMER_OPERATION_STOP            (0xF8)
+#define TIMER1_OPERATION_STOP           (0xFFF8)
 
 /*Clear to compare mode 1 ms delay*/
 #define TIMER_1_MS_DELAY                (250)
