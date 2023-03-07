@@ -2,7 +2,7 @@
  * @file    MTIMER_cfg.h
  * @author  Ahmed Shawky (amamasa121212@gmail.com.com)
  * @brief   This file contains configuration information related to Timer module
- * @version 1.0
+ * @version 1.3
  * @date    2023-03-06
  * 
  * 

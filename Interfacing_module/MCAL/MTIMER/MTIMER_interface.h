@@ -2,8 +2,8 @@
  * @file    MTIMER_interface.h
  * @author  Ahmed Shawky (amamasa121212@gmail.com.com)
  * @brief   This file contains interfacing information related to Timer module
- * @version 1.0
- * @date    2023-03-05
+ * @version 1.1
+ * @date    2023-03-07
  * 
  * 
  */
@@ -30,9 +30,23 @@
 
 /*Timer modes*/
 #define TIMER_DELAY_MODE                    (0x08)
+#define TIMER_PWM_MODE                      (0x68)//Fast PWM mode by default
 
 /*Timer prescalers*/
 #define TIMER_DELAY_PRESCALER               (TIMER_PRESCALER_64)
+
+/*Timer PWM frequencies*/
+#define TIMER_PH_CORRECT_OFFSET             (50)
+#define TIMER_FREQ_30_HZ                    (TIMER_PRESCALER_1024 + TIMER_PH_CORRECT_OFFSET)
+#define TIMER_FREQ_60_HZ                    (TIMER_PRESCALER_1024)
+#define TIMER_FREQ_122_HZ                   (TIMER_PRESCALER_256 + TIMER_PH_CORRECT_OFFSET)
+#define TIMER_FREQ_244_HZ                   (TIMER_PRESCALER_256)
+#define TIMER_FREQ_500_HZ                   (TIMER_PRESCALER_64 + TIMER_PH_CORRECT_OFFSET)
+#define TIMER_FREQ_1_KHZ                    (TIMER_PRESCALER_64)
+#define TIMER_FREQ_3_9_KHZ                  (TIMER_PRESCALER_8 + TIMER_PH_CORRECT_OFFSET)
+#define TIMER_FREQ_7_8_KHZ                  (TIMER_PRESCALER_8)
+#define TIMER_FREQ_31_25_KHZ                (TIMER_PRESCALER_1 + TIMER_PH_CORRECT_OFFSET)
+#define TIMER_FREQ_62_5_KHZ                 (TIMER_PRESCALER_1)
 
 /*Timer asynchronous modes*/
 #define Timer_SINGLE_OPERATION              (0)
@@ -68,5 +82,27 @@ void mtimer_delayMs_synchronous(u8_t au8_timerChannel,u32_t au32_delayTime_ms);
  * @param au8_operationType 
  */
 void mtimer_delayMs_asynchronous(u8_t au8_timerChannel,u32_t au32_delayTime_ms, void (*fptr_operationPointer)(void), u8_t au8_operationType);
+
+/**
+ * @brief This function is responsible for running PWM signal mode with pre-defined frequancy and certain duty cycle
+ * 
+ * @param au8_timerChannel 
+ * @param au8_dutyCycle 
+ */
+void mtimer_runPWM_signal(u8_t au8_timerChannel, u8_t au8_dutyCycle);
+
+/**
+ * @brief This function is used to start a PWM signal
+ * 
+ * @param au8_timerChannel
+ */
+void mtimer_startPWM_signal(u8_t au8_timerChannel);
+
+/**
+ * @brief This function is used to stop a running PWM signal
+ * 
+ * @param au8_timerChannel
+ */
+void mtimer_stopPWM_signal(u8_t au8_timerChannel);
 
 #endif /*__MTIMER_INTERFACE_H__*/
