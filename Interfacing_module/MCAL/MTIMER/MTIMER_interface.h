@@ -31,8 +31,9 @@
 /*Timer modes*/
 #define TIMER_DELAY_MODE                    (0x08)
 #define TIMER_PWM_MODE                      (0x68)//Fast PWM mode by default
+#define TIMER_ICU_MODE                      (0x0000)//ICU edge select is falling edge by default
 
-/*Timer prescalers*/
+/*Timer delay prescalers*/
 #define TIMER_DELAY_PRESCALER               (TIMER_PRESCALER_64)
 
 /*Timer PWM frequencies*/
@@ -48,6 +49,9 @@
 #define TIMER_FREQ_31_25_KHZ                (TIMER_PRESCALER_1 + TIMER_PH_CORRECT_OFFSET)
 #define TIMER_FREQ_62_5_KHZ                 (TIMER_PRESCALER_1)
 
+/*Timer ICU prescaler*/
+#define TIMER_ICU_PRESCALER                 (TIMER_PRESCALER_64)
+
 /*Timer asynchronous modes*/
 #define Timer_SINGLE_OPERATION              (0)
 #define Timer_PERIODIC_OPERATION            (1)
@@ -60,10 +64,10 @@
  * @brief This function is responsible for initializing specific timer channel (0/1/2) with certain mode and prescaler
  * 
  * @param au8_timerChannel 
- * @param timerMode 
- * @param timerPrescaler 
+ * @param au16_timerMode 
+ * @param au8_timerPrescaler 
  */
-void mtimer_init(u8_t au8_timerChannel, u8_t au8_timerMode, u8_t au8_timerPrescaler);
+void mtimer_init(u8_t au8_timerChannel, u16_t au16_timerMode, u8_t au8_timerPrescaler);
 
 /**
  * @brief This function is responsible for creating delay in ms by using synchronous operation
@@ -104,5 +108,13 @@ void mtimer_startPWM_signal(u8_t au8_timerChannel);
  * @param au8_timerChannel
  */
 void mtimer_stopPWM_signal(u8_t au8_timerChannel);
+
+/**
+ * @brief This function is used to get duty cycle and frequency of PWM signal
+ * 
+ * @param pu8_duty 
+ * @param pu32_freq 
+ */
+void mtimer_getSignal_duty_and_freq(u8_t* pu8_duty, u32_t* pu32_freq);
 
 #endif /*__MTIMER_INTERFACE_H__*/
