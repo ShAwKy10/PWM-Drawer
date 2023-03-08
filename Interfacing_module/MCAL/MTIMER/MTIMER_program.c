@@ -175,8 +175,7 @@ void mtimer_init(u8_t au8_timerChannel, u8_t au8_timerMode, u8_t au8_timerPresca
             {
                 /*Do nothing*/
             }
-            
-            
+                  
         }
         else
         {
@@ -195,6 +194,29 @@ void mtimer_init(u8_t au8_timerChannel, u8_t au8_timerMode, u8_t au8_timerPresca
         /*In case of channel 1*/
     case (TIMER_CHANNEL_1):
 
+        /*Checking if the timer mode is PWM mode or not*/
+        if (au8_timerMode == TIMER_PWM_MODE)
+        {   
+            /*Checking if the chosem PWM mode is phase correct or fast PWM*/
+            if (au8_timerPrescaler > TIMER_PH_CORRECT_OFFSET)
+            {   
+                /*Setting phase correct mode*/
+                au8_timerMode = TIMER_PH_CORRECT_MODE;
+
+                /*Setting the new timer prescaler*/
+                au8_timerPrescaler -= TIMER_PH_CORRECT_OFFSET;
+            }
+            else
+            {
+                /*Do nothing*/
+            }
+                  
+        }
+        else
+        {
+            /*Do nothing*/
+        }
+        
         /*Setting timer1 mode*/
         MTIMER_TCCR1 =  au8_timerMode;
 
@@ -206,7 +228,30 @@ void mtimer_init(u8_t au8_timerChannel, u8_t au8_timerMode, u8_t au8_timerPresca
 
         /*In case of channel 2*/
     case (TIMER_CHANNEL_2):
+    
+        /*Checking if the timer mode is PWM mode or not*/
+        if (au8_timerMode == TIMER_PWM_MODE)
+        {   
+            /*Checking if the chosem PWM mode is phase correct or fast PWM*/
+            if (au8_timerPrescaler > TIMER_PH_CORRECT_OFFSET)
+            {   
+                /*Setting phase correct mode*/
+                au8_timerMode = TIMER_PH_CORRECT_MODE;
 
+                /*Setting the new timer prescaler*/
+                au8_timerPrescaler -= TIMER_PH_CORRECT_OFFSET;
+            }
+            else
+            {
+                /*Do nothing*/
+            }
+                  
+        }
+        else
+        {
+            /*Do nothing*/
+        }
+        
         /*Setting timer2 mode*/
         MTIMER_TCCR2 =  au8_timerMode;
 
@@ -410,13 +455,17 @@ void mtimer_runPWM_signal(u8_t au8_timerChannel, u8_t au8_dutyCycle)
         /*In case of channel 1*/
     case (TIMER_CHANNEL_1):
 
-        
+        /*Setting the duty cycle*/
+        MTIMER_OCR1A = au8_dutyCycle;
+    
         /*Breaking from this case*/
         break; 
 
         /*In case of channel 2*/
     case (TIMER_CHANNEL_2):
 
+        /*Setting the duty cycle*/
+        MTIMER_OCR2 = au8_dutyCycle;
         
         /*Breaking from this case*/
         break; 
