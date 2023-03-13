@@ -618,7 +618,7 @@ void mtimer_getSignal_duty_and_freq(u8_t* pu8_duty, u32_t* pu32_freq)
     *pu8_duty = (u8_t) (((u32_t)au16_Ton * PERCENTAGE_COVERSTION) / (u32_t)au16_periodicTime);
 
     /*Getting the frequancy value in Hz*/
-    *pu32_freq = TIMER_ICU_FREQ_4US_DIVIDER / (u32_t)au16_periodicTime;
+    *pu32_freq = TIMER_ICU_FREQ_4_US_DIVIDER / (u32_t)au16_periodicTime;
 
     /*Return from this function*/
     return;
