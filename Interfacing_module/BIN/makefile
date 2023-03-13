@@ -1,20 +1,26 @@
 #File name: makefile
 #Purpose:   cotains the compiler comands to have the final executable image (.hex)
 #Auther:    Ahmed Shawky
-#Date:      5/3/2023
-#Version:   V2.3
+#Date:      13/3/2023
+#Version:   V2.4
 
 # Include directories
 INC_DIR := -I../LIB
+INC_DIR += -I../MCAL/MDIO
 INC_DIR += -I../MCAL/MTIMER
+INC_DIR += -I../HAL/HGLCD
 
 # C source files
 C_FILES := ../APP/main.c
+C_FILES += ../MCAL/MDIO/MDIO_program.c
 C_FILES += ../MCAL/MTIMER/MTIMER_program.c
+C_FILES += ../HAL/HGLCD/HGLCD_program.c
 
 # Object files
 OBJ_FILES := main.o
+OBJ_FILES += MDIO_program.o
 OBJ_FILES += MTIMER_program.o
+OBJ_FILES += HGLCD_program.o
 
 # AVR Controller configuration
 CONTROLLER := atmega32
