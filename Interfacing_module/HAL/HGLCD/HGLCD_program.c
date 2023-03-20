@@ -2,8 +2,8 @@
  * @file    HGLCD_program.c
  * @author  Ahmed Shawky (amamasa121212@gamil.com)
  * @brief   This file contains logical implementation related to GLCD module
- * @version 1.0
- * @date    2023-03-12
+ * @version 3.4
+ * @date    2023-03-20
  * 
  * 
  * 
@@ -25,6 +25,11 @@
 /*                                          Important macros                                       */
 /***************************************************************************************************/
 
+#define NULL                   (0)
+#define PAGE_INC_MACRO         (0.5)
+#define SWITCH_HALF_OFSET      (64)
+#define REMAIN_IN_THE_HALF     (200)
+
 /*Data byte bits*/
 #define BIT_0                  (0)
 #define BIT_1                  (1)
@@ -40,14 +45,13 @@
 #define INSTRUCTION_DELAY_MS   (5)
 
 /*DDRAM Address control header*/
-#define DISPLAY_OFF            (0x3E)
 #define COLUMN_0               (0x40)
 #define PAGE_0                 (0xB8)
 #define START_LINE             (0xC0)
-#define DISPLAY_ON             (0x3F)
 
-/*Numbers of pages*/
+/*Numbers of pages,columns and start lines*/
 #define TOTAL_PAGE             (8)
+#define TOTAL_COLUMN           (128)
 
 /***************************************************************************************************/
 /*                                       Functions' definitions                                    */
@@ -140,11 +144,11 @@ void hglcd_clearAll()
 
     for ( i = 0; i < TOTAL_PAGE; i++)
     {
-        hglcd_sendCommand((0xB0) + i); //Increment page
+        hglcd_sendCommand((PAGE_0) + i); //Increment page
 
         for ( j = 0; j < 64; j++)
         {
-            hglcd_sendData(0); //Write zeros to all 64 column
+            hglcd_sendData(NULL); //Write zeros to all 64 column
 
         }
          
@@ -157,25 +161,57 @@ void hglcd_clearAll()
     return;
 }
 
-void hglcd_displayString(u8_t au8_pageNum, u8_t* pu8_stringData)
+void hglcd_displayString(u8_t au8_pageNum, u8_t au8_columnNum, u8_t* pu8_stringData)
 {
-    u8_t i , column;
-    u16_t page = ((0x0B) + au8_pageNum);
-    u16_t Y_address = 0;
-    f32_t page_inc = 0.5;
+    u8_t i, columnF;
+    u8_t flag1 = 1;
+    u8_t flag2;
+    u16_t column = ((COLUMN_0) + au8_columnNum);
+    u16_t page = ((PAGE_0) + au8_pageNum);
+    u16_t Y_address = NULL;
+    f32_t page_inc = PAGE_INC_MACRO;
 
-    /*Select left half of display*/
-    mdio_SetPinValue(LCD_CONTROL_LINES_PORT, LCD_CS1_PIN, HIGH);
-    mdio_SetPinValue(LCD_CONTROL_LINES_PORT, LCD_CS2_PIN, LOW);
+    /*Select the half of display*/
+    if (au8_columnNum < SWITCH_HALF_OFSET)
+    {
+        mdio_SetPinValue(LCD_CONTROL_LINES_PORT, LCD_CS1_PIN, HIGH);
+        mdio_SetPinValue(LCD_CONTROL_LINES_PORT, LCD_CS2_PIN, LOW);
+        hglcd_sendCommand(column);
 
+        flag2 = SWITCH_HALF_OFSET - au8_columnNum;
+    }
+    else if (au8_columnNum >= SWITCH_HALF_OFSET)
+    {
+        mdio_SetPinValue(LCD_CONTROL_LINES_PORT, LCD_CS1_PIN, LOW);
+        mdio_SetPinValue(LCD_CONTROL_LINES_PORT, LCD_CS2_PIN, HIGH);
+        hglcd_sendCommand(column - SWITCH_HALF_OFSET);
+
+        flag2 = TOTAL_COLUMN - au8_columnNum;
+    }
+    
     hglcd_sendCommand(page);
 
     /*Print char in string till null*/
-    for ( i = 0; pu8_stringData[i] != 0; i++)
+    for ( i = NULL; pu8_stringData[i] != NULL; i++)
     {
-        if (Y_address > (1024 - (((au8_pageNum)* 128) + FontWidth)))
+        if (((flag1 * FontWidth) >= flag2))
         {
-            break;;
+            mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS1_PIN);
+            mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS2_PIN);
+            hglcd_sendCommand(COLUMN_0);
+            hglcd_sendCommand(page);
+            flag2 = REMAIN_IN_THE_HALF;
+        }
+        else
+        {
+            /*Do nothing*/
+        }
+        
+        flag1++;
+
+        if (Y_address > (1024 - (((au8_pageNum)* TOTAL_COLUMN) + FontWidth)))
+        {
+            break;
         }
         else
         {
@@ -184,11 +220,11 @@ void hglcd_displayString(u8_t au8_pageNum, u8_t* pu8_stringData)
 
         if (pu8_stringData[i] != 32)
         {
-            for (column = 1; column <= FontWidth; column++)
+            for (columnF = 1; columnF <= FontWidth; columnF++)
             {
-                if ((Y_address+column) == (128 * ((u8_t)(page_inc + 0.5))))
+                if ((Y_address+columnF) == (TOTAL_COLUMN * ((u8_t)(page_inc + PAGE_INC_MACRO))))
                 {
-                    if (column == FontWidth)
+                    if (columnF == FontWidth)
                     {
                         break;
                     }
@@ -196,15 +232,15 @@ void hglcd_displayString(u8_t au8_pageNum, u8_t* pu8_stringData)
                     {
                         /*Do nothing*/
                     }
-                    
+
                     hglcd_sendCommand(COLUMN_0);
-                    Y_address = Y_address + column;
+                    Y_address = Y_address + columnF;
 
                     mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS1_PIN);
                     mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS2_PIN);
 
                     hglcd_sendCommand(page + page_inc);
-                    page_inc = page_inc + 0.5;
+                    page_inc = page_inc + PAGE_INC_MACRO;
 
                 }
                 else
@@ -212,7 +248,7 @@ void hglcd_displayString(u8_t au8_pageNum, u8_t* pu8_stringData)
                     /*Do nothing*/
                 }
 
-                if (Y_address > (1024 - (((au8_pageNum) * 128) + FontWidth)))
+                if (Y_address > (1024 - (((au8_pageNum) * TOTAL_COLUMN) + FontWidth)))
                 {
                     break;
                 }
@@ -223,41 +259,43 @@ void hglcd_displayString(u8_t au8_pageNum, u8_t* pu8_stringData)
 
                 if ((font[((pu8_stringData [i] - 32) * FontWidth) + 4]) == 0 || pu8_stringData[i] == 32)
                 {
-                    for ( column = 0; column < FontWidth; column++)
+                    for ( columnF = 0; columnF < FontWidth; columnF++)
                     {
-                        hglcd_sendData(font[pu8_stringData[i] - 32][column]);
+                        hglcd_sendData(font[pu8_stringData[i] - 32][columnF]);
 
                         if ((Y_address + 1) % 64 == 0)
                         {
                             mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS1_PIN);
                             mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS2_PIN);
 
+                            hglcd_sendCommand(COLUMN_0);
                             hglcd_sendCommand((page + page_inc));
-                            page_inc = page_inc + 0.5;
+                            page_inc = page_inc + PAGE_INC_MACRO;
                         }
                         else
                         {
                             /*Do nothing*/
                         }
                         
-                        Y_address ++;
+                        Y_address++;
                         
                     }
                     
                 }
                 else
                 {
-                    for ( column = 0; column < FontWidth; column++)
+                    for ( columnF = 0; columnF < FontWidth; columnF++)
                     {
-                        hglcd_sendData(font[pu8_stringData[i] - 32][column]);
+                        hglcd_sendData(font[pu8_stringData[i] - 32][columnF]);
 
                         if ((Y_address + 1) % 64 == 0)
                         {
                             mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS1_PIN);
                             mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS2_PIN);
 
+                            hglcd_sendCommand(COLUMN_0);
                             hglcd_sendCommand((page + page_inc));
-                            page_inc = page_inc + 0.5;
+                            page_inc = page_inc + PAGE_INC_MACRO;
                         }
                         else
                         {
@@ -269,15 +307,16 @@ void hglcd_displayString(u8_t au8_pageNum, u8_t* pu8_stringData)
                     }
 
                     hglcd_sendData(0);
-                    Y_address ++;
+                    Y_address++;
 
                     if ((Y_address + 1) % 64 == 0)
                     {
                         mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS1_PIN);
                         mdio_TogglePinValue(LCD_CONTROL_LINES_PORT, LCD_CS2_PIN);
 
+                        hglcd_sendCommand(COLUMN_0);
                         hglcd_sendCommand((page + page_inc));
-                        page_inc = page_inc + 0.5;               
+                        page_inc = page_inc + PAGE_INC_MACRO;               
                     }
                     
                 }
@@ -294,13 +333,6 @@ void hglcd_displayString(u8_t au8_pageNum, u8_t* pu8_stringData)
 
     hglcd_sendCommand(COLUMN_0); //Set Y address (column = 0)
     
-    /*Return from this function*/
-    return;
-}
-
-void hglcd_displayImage(u8_t* pu8_pxl)
-{
-
     /*Return from this function*/
     return;
 }

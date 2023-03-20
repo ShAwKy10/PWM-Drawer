@@ -2,8 +2,8 @@
  * @file    HGLCD_intrface.h
  * @author  Ahmed Shawky (amamasa121212@gamil.com)
  * @brief   This file contains interfacing information related to GLCD module
- * @version 1.0
- * @date    2022-03-12
+ * @version 1.1
+ * @date    2022-03-20
  * 
  * 
  * 
@@ -45,14 +45,8 @@ void hglcd_displayCharacter(u8_t* pu8_characterData, u8_t au8_pn);
  * 
  * @param pu8_stringData 
  * @param au8_pageNum 
+ * @param au8_columnNum
  */
-void hglcd_displayString(u8_t au8_pageNum, u8_t* pu8_stringData);
-
-/**
- * @brief This function is responsible for displaying an Image over LCD
- * 
- * @param pu8_pxl 
- */
-void hglcd_displayImage(u8_t* pu8_pxl);
+void hglcd_displayString(u8_t au8_pageNum, u8_t au8_columnNum, u8_t* pu8_stringData);
 
 #endif /*__HGLCD_INTERFACE_H__*/

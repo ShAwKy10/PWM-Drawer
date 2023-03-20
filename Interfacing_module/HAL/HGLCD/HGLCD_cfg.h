@@ -2,8 +2,8 @@
  * @file    HGLCD_cfg.h
  * @author  Ahmed Shawky (amamasa121212@gamil.com)
  * @brief   This file contains configuration information related to GLCD module
- * @version 1.0
- * @date    2022-03-12
+ * @version 1.1
+ * @date    2022-03-20
  * 
  * 
  * 
@@ -38,5 +38,7 @@
 #define LCD_D7_PIN                  (PIN7)
 
 /*LCD Instructions*/
+#define DISPLAY_ON                  (0x3F)
+#define DISPLAY_OFF                 (0x3E)
 
 #endif /*__HGLCD_CFG_H__*/
