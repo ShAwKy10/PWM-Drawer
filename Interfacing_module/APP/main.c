@@ -42,8 +42,6 @@ int main (void)
     {
         hglcd_clearAll();
 
-        _delay_ms(100);
-
         mtimer_getSignal_duty_and_freq(&duty, &freq);
 
         _delay_ms(1000);
