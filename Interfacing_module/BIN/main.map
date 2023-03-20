@@ -183,7 +183,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1976
+.text           0x00000000     0x1964
  *(.vectors)
  .vectors       0x00000000       0x54 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -312,191 +312,191 @@ END GROUP
  .text          0x00000c6e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
                 0x00000c6e                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x00000c6e      0x2c8 main.o
+ .text.startup  0x00000c6e      0x2b6 main.o
                 0x00000c6e                main
  .text.libgcc.mul
-                0x00000f36        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000f24        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
  .text.libgcc.div
-                0x00000f36       0x18 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
-                0x00000f36                __udivmodqi4
- .text.libgcc   0x00000f4e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000f24       0x18 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000f24                __udivmodqi4
+ .text.libgcc   0x00000f3c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
  .text.libgcc.prologue
-                0x00000f4e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000f3c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
  .text.libgcc.builtins
-                0x00000f4e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000f3c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
  .text.libgcc.fmul
-                0x00000f4e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000f3c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
  .text.libgcc.fixed
-                0x00000f4e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000f3c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
  .text.libgcc.mul
-                0x00000f4e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f3c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.div
-                0x00000f4e       0x44 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00000f4e                __udivmodsi4
- .text.libgcc   0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f3c       0x44 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f3c                __udivmodsi4
+ .text.libgcc   0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.prologue
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.builtins
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.fmul
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.fixed
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.mul
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x00000f92        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00000f80        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.mul
-                0x00000f92       0x1e d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
-                0x00000f92                __umulhisi3
+                0x00000f80       0x1e d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000f80                __umulhisi3
  .text.libgcc.div
-                0x00000fb0        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
- .text.libgcc   0x00000fb0        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000f9e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x00000f9e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.prologue
-                0x00000fb0        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000f9e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.builtins
-                0x00000fb0        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000f9e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.fmul
-                0x00000fb0        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000f9e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.fixed
-                0x00000fb0        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000f9e        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.avr-libc.fplib
-                0x00000fb0        0xe d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x00000fb0                __subsf3
-                0x00000fb2                __addsf3
+                0x00000f9e        0xe d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x00000f9e                __subsf3
+                0x00000fa0                __addsf3
  .text.avr-libc.fplib
-                0x00000fbe       0xcc d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x00000fe0                __addsf3x
+                0x00000fac       0xcc d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x00000fce                __addsf3x
  .text.avr-libc.fplib
-                0x0000108a        0x8 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
-                0x0000108a                __divsf3
+                0x00001078        0x8 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                0x00001078                __divsf3
  .text.avr-libc.fplib
-                0x00001092       0xdc d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
-                0x000010b2                __divsf3x
-                0x000010b8                __divsf3_pse
+                0x00001080       0xdc d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                0x000010a0                __divsf3x
+                0x000010a6                __divsf3_pse
  .text.avr-libc.fplib
-                0x0000116e       0x5e d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x0000116e                __fixunssfsi
+                0x0000115c       0x5e d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x0000115c                __fixunssfsi
  .text.avr-libc.fplib
-                0x000011cc       0x7a d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x000011cc                __floatunsisf
-                0x000011d0                __floatsisf
+                0x000011ba       0x7a d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x000011ba                __floatunsisf
+                0x000011be                __floatsisf
  .text.avr-libc.fplib
-                0x00001246        0xc d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x00001246                __fp_inf
+                0x00001234        0xc d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x00001234                __fp_inf
  .text.avr-libc.fplib
-                0x00001252        0x6 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x00001252                __fp_nan
+                0x00001240        0x6 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x00001240                __fp_nan
  .text.avr-libc.fplib
-                0x00001258        0xe d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x00001258                __fp_pscA
+                0x00001246        0xe d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00001246                __fp_pscA
  .text.avr-libc.fplib
-                0x00001266        0xe d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x00001266                __fp_pscB
+                0x00001254        0xe d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x00001254                __fp_pscB
  .text.avr-libc.fplib
-                0x00001274       0x22 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x00001274                __fp_round
+                0x00001262       0x22 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x00001262                __fp_round
  .text.avr-libc.fplib
-                0x00001296       0x44 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x00001296                __fp_split3
-                0x000012a6                __fp_splitA
+                0x00001284       0x44 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x00001284                __fp_split3
+                0x00001294                __fp_splitA
  .text.avr-libc.fplib
-                0x000012da        0xe d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x000012da                __fp_zero
-                0x000012dc                __fp_szero
+                0x000012c8        0xe d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x000012c8                __fp_zero
+                0x000012ca                __fp_szero
  .text.avr-libc.fplib
-                0x000012e8        0x8 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x000012e8                __mulsf3
+                0x000012d6        0x8 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x000012d6                __mulsf3
  .text.avr-libc.fplib
-                0x000012f0       0xd2 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x0000130e                __mulsf3x
-                0x00001314                __mulsf3_pse
+                0x000012de       0xd2 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x000012fc                __mulsf3x
+                0x00001302                __mulsf3_pse
  .text.avr-libc
-                0x000013c2       0x46 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x000013c2                sprintf
+                0x000013b0       0x46 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x000013b0                sprintf
  .text.avr-libc
-                0x00001408      0x3b4 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00001408                vfprintf
+                0x000013f6      0x3b4 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x000013f6                vfprintf
  .text.avr-libc
-                0x000017bc       0x16 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x000017bc                strnlen_P
+                0x000017aa       0x16 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x000017aa                strnlen_P
  .text.avr-libc
-                0x000017d2       0x16 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x000017d2                strnlen
+                0x000017c0       0x16 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x000017c0                strnlen
  .text.avr-libc
-                0x000017e8       0x60 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x000017e8                fputc
+                0x000017d6       0x60 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x000017d6                fputc
  .text.avr-libc
-                0x00001848       0xbc d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00001848                __ultoa_invert
+                0x00001836       0xbc d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00001836                __ultoa_invert
  .text.libgcc.mul
-                0x00001904        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+                0x000018f2        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
  .text.libgcc.div
-                0x00001904        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
- .text.libgcc   0x00001904        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+                0x000018f2        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .text.libgcc   0x000018f2        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
  .text.libgcc.prologue
-                0x00001904       0x38 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
-                0x00001904                __prologue_saves__
+                0x000018f2       0x38 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+                0x000018f2                __prologue_saves__
  .text.libgcc.builtins
-                0x0000193c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+                0x0000192a        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
  .text.libgcc.fmul
-                0x0000193c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+                0x0000192a        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
  .text.libgcc.fixed
-                0x0000193c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+                0x0000192a        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
  .text.libgcc.mul
-                0x0000193c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+                0x0000192a        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
  .text.libgcc.div
-                0x0000193c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
- .text.libgcc   0x0000193c        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+                0x0000192a        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .text.libgcc   0x0000192a        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
  .text.libgcc.prologue
-                0x0000193c       0x36 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
-                0x0000193c                __epilogue_restores__
+                0x0000192a       0x36 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+                0x0000192a                __epilogue_restores__
  .text.libgcc.builtins
-                0x00001972        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+                0x00001960        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
  .text.libgcc.fmul
-                0x00001972        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+                0x00001960        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
  .text.libgcc.fixed
-                0x00001972        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
-                0x00001972                . = ALIGN (0x2)
+                0x00001960        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+                0x00001960                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001972        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
-                0x00001972                _exit
-                0x00001972                exit
+ .fini9         0x00001960        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00001960                _exit
+                0x00001960                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -515,11 +515,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001972        0x4 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001960        0x4 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001976                _etext = .
+                0x00001964                _etext = .
 
-.data           0x00800060      0x228 load address 0x00001976
+.data           0x00800060      0x228 load address 0x00001964
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/amit/embedded systems/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32.o
@@ -609,8 +609,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 0x008002a9                PROVIDE (__bss_end, .)
-                0x00001976                __data_load_start = LOADADDR (.data)
-                0x00001b9e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001964                __data_load_start = LOADADDR (.data)
+                0x00001b8c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008002a9        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
